@@ -5,11 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ProjectDemo.Application.Mappers.HomeProfile
+namespace ProjectDemo.Application.Mappers
 {
-    public class HomeProfile : Profile
+    public class ProfileMapper : Profile
     {
-        public HomeProfile()
+        public ProfileMapper()
         {
             CreateMap<Product, GetAllProductResponse>();
             CreateMap<AddProductTestRequest, Product>();

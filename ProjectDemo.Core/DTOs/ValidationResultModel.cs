@@ -10,7 +10,6 @@ namespace ProjectDemo.Core.DTOs
     public class ValidationResultModel
     {
         public string Type { get; }
-
         public List<ValidationError> Errors { get; }
 
         public ValidationResultModel(ModelStateDictionary modelState)

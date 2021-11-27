@@ -50,7 +50,7 @@ namespace ProjectDemo.Api
 
             services.Configure<ApiBehaviorOptions>(opt =>
             {
-                opt.SuppressModelStateInvalidFilter = false;
+                opt.SuppressModelStateInvalidFilter = true;
             });
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -84,9 +84,9 @@ namespace ProjectDemo.Api
             }
 
             app.UseMiddleware<ErrorHandlerMiddleware>();
+            app.UseMiddleware<RequestBodyLoggingMiddleware>();
+            app.UseMiddleware<ResponseBodyLoggingMiddleware>();
 
-            app.UseRequestBodyLogging();
-            app.UseResponseBodyLogging();
 
             app.UseCors(allowSpecificOrigins);
 

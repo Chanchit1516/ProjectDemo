@@ -11,7 +11,7 @@ namespace ProjectDemo.Application.IoC
     {
         public static void RegisterCoreServices(this IServiceCollection serviceCollection)
         {
-            serviceCollection.AddScoped<IHomeService, HomeService>();
+            serviceCollection.AddScoped<IProductService, ProductService>();
         }
     }
 }
