@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.Extensions.Logging;
 using ProjectDemo.Core.DTOs;
 using ProjectDemo.Core.DTOs.Home;
 using ProjectDemo.Core.Entities;
@@ -7,8 +8,8 @@ using ProjectDemo.Core.Interfaces.UseCases;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+
 
 namespace ProjectDemo.Application.Services
 {
@@ -16,11 +17,13 @@ namespace ProjectDemo.Application.Services
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+        private readonly ILogger<ProductService> _logger;
 
-        public ProductService(IUnitOfWork unitOfWork, IMapper mapper)
+        public ProductService(IUnitOfWork unitOfWork, IMapper mapper, ILogger<ProductService> logger)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _logger = logger;
         }
 
         public async Task<IEnumerable<GetAllProductResponse>> GetAllProduct()

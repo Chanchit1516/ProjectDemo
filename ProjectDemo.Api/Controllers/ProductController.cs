@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using ProjectDemo.Api.Filters;
 using ProjectDemo.Application.Extensions;
 using ProjectDemo.Application.Helpers;
@@ -18,10 +19,12 @@ namespace ProjectDemo.Api.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IProductService _homeService;
+        private readonly ILogger<ProductController> _logger;
 
-        public ProductController(IProductService homeService)
+        public ProductController(IProductService homeService, ILogger<ProductController> logger)
         {
             _homeService = homeService;
+            _logger = logger;
 
         }
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -10,11 +11,13 @@ namespace ProjectDemo.Core.DTOs
     public class ValidationResultModel
     {
         public string Type { get; }
+        public int StatusCode { get; }
         public List<ValidationError> Errors { get; }
 
         public ValidationResultModel(ModelStateDictionary modelState)
         {
             Type = "Validation Failed";
+            StatusCode = StatusCodes.Status400BadRequest;
             Errors = modelState.Keys
                     .SelectMany(key => modelState[key].Errors.Select(x => new ValidationError(key, x.ErrorMessage)))
                     .ToList();

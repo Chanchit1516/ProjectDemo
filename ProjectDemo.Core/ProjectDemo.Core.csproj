@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <Folder Include="CustomEntities\" />
+    <Folder Include="Constants\" />
+    <Folder Include="Enums\" />
   </ItemGroup>
 
   <ItemGroup>
