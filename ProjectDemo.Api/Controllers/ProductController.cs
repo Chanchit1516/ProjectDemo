@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ProjectDemo.Api.Filters;
-using ProjectDemo.Application.Extensions;
 using ProjectDemo.Application.Helpers;
 using ProjectDemo.Core.DTOs;
 using ProjectDemo.Core.DTOs.Home;
