@@ -37,12 +37,14 @@ namespace ProjectDemo.Api
             services.AddTransient<RequestBodyLoggingMiddleware>();
             services.AddTransient<ResponseBodyLoggingMiddleware>();
 
+            var allowedHosts = Configuration.GetSection("Origins:Allowed").Get<List<string>>();
+
             services.AddCors(options =>
             {
                 options.AddPolicy(allowSpecificOrigins,
                     builder =>
                     {
-                        builder.WithOrigins("*")
+                        builder.WithOrigins(allowedHosts.ToArray())
                         .AllowAnyHeader()
                         .AllowAnyMethod();
                     });
